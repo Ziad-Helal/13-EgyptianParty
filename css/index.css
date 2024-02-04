@@ -81,7 +81,11 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   min-height: 100svh;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: -webkit-min-content 1fr;
+  -ms-grid-columns: min-content 1fr;
+  grid-template-columns: -webkit-min-content 1fr;
   grid-template-columns: min-content 1fr;
 }
 
@@ -143,7 +147,11 @@ a {
 ============================== */
 
 #pageAside {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 8;
   grid-row: 1 / 9;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   z-index: 1;
   color: var(--background-color);
@@ -160,6 +168,8 @@ a {
 
 #pageAside .closeMenu,
 #pageAside nav li a {
+  -webkit-transition: color var(--primary-duration);
+  -o-transition: color var(--primary-duration);
   transition: color var(--primary-duration);
 }
 
@@ -197,6 +207,19 @@ a {
 
 #pageHeader {
   height: 660px;
+  background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(var(--primary-color-rgb), var(--opacity))),
+      to(rgba(var(--primary-color-rgb), var(--opacity)))
+    ),
+    url("../images/events-heavenly-header.jpg");
+  background: -o-linear-gradient(
+      rgba(var(--primary-color-rgb), var(--opacity)),
+      rgba(var(--primary-color-rgb), var(--opacity))
+    ),
+    url("../images/events-heavenly-header.jpg");
   background: linear-gradient(
       rgba(var(--primary-color-rgb), var(--opacity)),
       rgba(var(--primary-color-rgb), var(--opacity))
@@ -218,8 +241,14 @@ a {
 
 #pageHeader .subTitle {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   font-size: 3em;
   text-align: center;
@@ -257,6 +286,19 @@ a {
 /* ========== 4.2.2- Countdown ========== */
 
 #countdown {
+  background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(var(--primary-color-rgb), var(--opacity))),
+      to(rgba(var(--primary-color-rgb), var(--opacity)))
+    ),
+    url("../images/invitation-2508607__340.jpg");
+  background: -o-linear-gradient(
+      rgba(var(--primary-color-rgb), var(--opacity)),
+      rgba(var(--primary-color-rgb), var(--opacity))
+    ),
+    url("../images/invitation-2508607__340.jpg");
   background: linear-gradient(
       rgba(var(--primary-color-rgb), var(--opacity)),
       rgba(var(--primary-color-rgb), var(--opacity))
@@ -268,7 +310,12 @@ a {
 }
 
 #countdown #duration {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 1rem;
   padding: 10px;
@@ -300,10 +347,23 @@ a {
 }
 
 #contact .wraper {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
+  -ms-grid-rows: auto 1.5rem auto;
   grid-template-rows: auto auto;
   gap: 1.5rem;
+}
+
+#contact .wraper > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
+#contact .wraper > *:nth-child(2) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
 }
 
 /* 4.2.3.1- Contact Information */
@@ -329,6 +389,8 @@ a {
 }
 
 #contact #contactInfo #socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 1rem;
 }
@@ -352,7 +414,12 @@ a {
 
 #contact form fieldset {
   border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 1rem;
 }
@@ -411,6 +478,9 @@ a {
   /* 5.1.2.2.1- Countdown */
 
   #countdown #duration {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
   }
 
@@ -429,7 +499,17 @@ a {
 
   /* 5.2.1.1.1- Contact Us */
   #contact .wraper {
+    -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: auto;
     grid-template-rows: auto;
+  }
+  #contact .wraper > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  #contact .wraper > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
   }
 }
